@@ -1,13 +1,12 @@
 const convertButton = document.getElementById("convert-button");
 
 convertButton.addEventListener('click', () => {
-    const data = extractData(extractionData);
-    console.log(data);
-    passToPHPServer(data);
+   // const data = extractData(extractionData);
+    location.href = "/process";
+    
 
 
 })
-
 const extractionData = [
                 'wo_number',    // tracking number
                 'po_number',
@@ -41,7 +40,7 @@ const extractData = (extractionData) => {
 // passes data to the server where it's processed.
 const passToPHPServer = (data) => {
     let response = fetch(
-        "convertAjax.php", {
+        "src/Parser/convertAjax.php", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

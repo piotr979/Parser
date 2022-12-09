@@ -276,3 +276,5 @@ Following data will be extracted and saved to CSV file
     </td>
 </tr>
 </table>
+
+<script src="js/extractData.js"></script>
