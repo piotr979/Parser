@@ -1,8 +1,11 @@
 const convertButton = document.getElementById("convert-button");
 
 convertButton.addEventListener('click', () => {
-   // const data = extractData(extractionData);
-    location.href = "/process";
+    const data = extractData(extractionData);
+    console.log(data);
+    let params = new URLSearchParams(data).toString();
+    console.log(params);
+    location.href = "/process?" + params;
     
 
 
@@ -23,7 +26,6 @@ const extractionData = [
 
 // collects data from the table
 const extractData = (extractionData) => {
-    console.log(window.location.pathname);
     let data = {};
     extractionData.forEach (item  => {
         currentCell = document.getElementById(item);
