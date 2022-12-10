@@ -6,9 +6,10 @@ declare(strict_types = 1);
  */
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../config/data.php';
+require_once __DIR__ . '/../config/extractionData.php';
 
 use App\View\ViewRenderer;
-use App\Parser\CSVParser;
+use App\Model\Parser\CSVParser;
 
 $viewRenderer = new ViewRenderer();
 $parser = new CSVParser();
@@ -19,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ||
     $_SERVER['REQUEST_METHOD'] == 'GET') 
     {
      if (substr($url,0,strlen(PROCESS_URL)) === PROCESS_URL) {
-            $parser->parseData($url);
+            $parser->parseData($extractionData);
             print($viewRenderer->renderView(PROCESS_PAGE));
             // process data
 
