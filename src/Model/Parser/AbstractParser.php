@@ -24,6 +24,8 @@ abstract class AbstractParser {
     public function downloadFile(string $fileName, string $data) {
           // echo $this->buffer;
 
+        file_put_contents($fileName, $data);
+      
         if (file_exists($fileName)) {
             header('Content-Description: File Transfer');
             header('Content-Type: application/octet-stream');
